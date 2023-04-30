@@ -1,0 +1,354 @@
+// lear
+// Intro Section With Dropdown Navigation
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Epilogue", sans-serif;
+}
+
+// Colors
+$white: hsl(0, 0%, 98%);
+$gray: hsl(0, 0%, 41%);
+$black: hsl(0, 0%, 8%);
+$halfGray: hsla(0, 0%, 41%, 0.3);
+
+// Navigation
+.nav-bar {
+  display: flex;
+  align-items: center;
+  padding: 2.5rem 5%;
+
+  .logo {
+    display: block;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 3.5rem;
+    width: 100%;
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+
+      .feature,
+      .company {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        gap: 1rem;
+
+        .link {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        img {
+          transition: 0.4s;
+          -webkit-transition: 0.4s;
+          -moz-transition: 0.4s;
+          -ms-transition: 0.4s;
+          -o-transition: 0.4s;
+        }
+      }
+
+      .feature-box {
+        display: none;
+        flex-direction: column;
+        width: 180px;
+        gap: 1.25rem;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 1rem);
+        background-color: $white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        -webkit-border-radius: 0.75rem;
+        -moz-border-radius: 0.75rem;
+        -ms-border-radius: 0.75rem;
+        -o-border-radius: 0.75rem;
+        box-shadow: 0 0 1.5rem $halfGray;
+
+        .box-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          font-weight: 400;
+          font-size: 0.925rem;
+          color: $gray;
+          cursor: pointer;
+
+          &:hover {
+            color: $black;
+          }
+
+          img {
+            width: 17px;
+            height: 17px;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .company-box {
+        display: none;
+        flex-direction: column;
+        gap: 1.25rem;
+        position: absolute;
+        top: calc(100% + 1rem);
+        left: 0;
+        width: 150px;
+        background-color: $white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        -webkit-border-radius: 0.75rem;
+        -moz-border-radius: 0.75rem;
+        -ms-border-radius: 0.75rem;
+        -o-border-radius: 0.75rem;
+        box-shadow: 0 0 1.5rem $halfGray;
+
+        .box-item {
+          font-weight: 400;
+          font-size: 0.925rem;
+          color: $gray;
+          cursor: pointer;
+
+          &:hover {
+            color: $black;
+          }
+        }
+      }
+
+      .feature.active,
+      .company.active {
+        .link {
+          color: $black;
+        }
+
+        img {
+          transform: rotate(180deg);
+          -webkit-transform: rotate(180deg);
+          -moz-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          -o-transform: rotate(180deg);
+        }
+
+        .feature-box,
+        .company-box {
+          display: flex;
+        }
+      }
+
+      .link {
+        font-size: 0.925rem;
+        color: $gray;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+
+    .nav-btns {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+
+      .login-btn {
+        font-size: 0.925rem;
+        color: $gray;
+        font-weight: 500;
+        cursor: pointer;
+
+        &:hover {
+          color: $black;
+        }
+      }
+
+      .register-btn {
+        font-size: 0.925rem;
+        padding: 0.8rem 1.4rem;
+        border: 0.1rem solid $gray;
+        color: $gray;
+        background-color: transparent;
+        border-radius: 0.75rem;
+        -webkit-border-radius: 0.75rem;
+        -moz-border-radius: 0.75rem;
+        -ms-border-radius: 0.75rem;
+        -o-border-radius: 0.75rem;
+        cursor: pointer;
+
+        &:hover {
+          border-color: $black;
+          color: $black;
+        }
+      }
+    }
+  }
+
+  .links-btn {
+    display: none;
+    cursor: pointer;
+  }
+}
+
+// Main Content
+.main-content {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding: 2.5rem 10%;
+
+  .content {
+    width: 50%;
+
+    .title {
+      font-size: 4rem;
+      font-weight: 700;
+    }
+
+    .text {
+      color: $gray;
+      font-weight: 400;
+      line-height: 1.6rem;
+      max-width: 400px;
+      padding: 3.75rem 0;
+    }
+
+    .btn {
+      padding: 0.9rem 1.6rem;
+      cursor: pointer;
+      background-color: $black;
+      color: $white;
+      border: 1px solid $black;
+      font-size: 0.925rem;
+      border-radius: 0.75rem;
+      -webkit-border-radius: 0.75rem;
+      -moz-border-radius: 0.75rem;
+      -ms-border-radius: 0.75rem;
+      -o-border-radius: 0.75rem;
+
+      &:hover {
+        color: $black;
+        background-color: $white;
+      }
+    }
+
+    .logos {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      padding-top: 7.5rem;
+    }
+  }
+
+  .main-image {
+    width: 50%;
+    height: 700px;
+    background-image: url(images/image-hero-desktop.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+// For Smaller Devices
+@media screen and (max-width: 932px) {
+  .main-content {
+    flex-direction: column-reverse;
+    padding: 2.5rem 5%;
+
+    .content {
+      width: 100%;
+      text-align: center;
+
+      .title {
+        font-size: 2.75rem;
+      }
+
+      .text {
+        margin: auto;
+        padding: 1.5rem 0;
+      }
+
+      .logos {
+        justify-content: space-between;
+        padding-top: 4rem;
+        gap: 1.5rem;
+
+        img {
+          width: 100%;
+          max-width: 100px;
+        }
+      }
+    }
+
+    .main-image {
+      width: min(650px, 100%);
+      height: min(564px, 50vw);
+      background-image: url(images/image-hero-mobile.png);
+      background-size: cover;
+    }
+  }
+
+  .nav-bar {
+    justify-content: space-between;
+    position: relative;
+    isolation: isolate;
+
+    .container {
+      flex-direction: column;
+      justify-content: center;
+      gap: 2.5rem;
+      position: fixed;
+      right: -220px;
+      top: 0;
+      width: 220px;
+      height: 100vh;
+      background-color: $white;
+      box-shadow: 0 0 1.5rem $halfGray;
+      padding-left: 0;
+      z-index: -1;
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      -moz-transition: 0.4s;
+      -ms-transition: 0.4s;
+      -o-transition: 0.4s;
+
+      &.active {
+        right: 0;
+      }
+
+      .links {
+        flex-direction: column;
+
+        .feature-box,
+        .company-box {
+          position: static;
+        }
+      }
+
+      .nav-btns {
+        flex-direction: column;
+        width: 90%;
+
+        .register-btn {
+          width: 100%;
+        }
+      }
+    }
+
+    .links-btn {
+      display: block;
+    }
+  }
+}
